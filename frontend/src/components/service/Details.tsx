@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import Endpoints from '../../lib/k8s/endpoints';
 import Service from '../../lib/k8s/service';
+import { EventsSection } from '../cluster/Overview';
 import { Link } from '../common';
 import Empty from '../common/EmptyContent';
 import { ValueLabel } from '../common/Label';
@@ -100,6 +101,7 @@ export default function ServiceDetails() {
                 />
               )}
             </SectionBox>
+            <EventsSection />
           </>
         )
       }

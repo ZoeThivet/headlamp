@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import Ingress from '../../lib/k8s/ingress';
 import { useSettings } from '../App/settings/hook';
+import { EventsSection } from '../cluster/Overview';
 import { DetailsGrid } from '../common/Resource';
 import { SectionBox } from '../common/SectionBox';
 import SimpleTable from '../common/SimpleTable';
@@ -36,32 +37,35 @@ export default function IngressDetails() {
       name={name}
       namespace={namespace}
       sectionsFunc={item => (
-        <SectionBox title={t('Rules')}>
-          <SimpleTable
-            rowsPerPage={storeRowsPerPageOptions}
-            emptyMessage={t('ingress|No rules data to be shown.')}
-            columns={[
-              {
-                label: t('Host'),
-                getter: data => data.host,
-              },
-              {
-                label: t('Path'),
-                getter: data => data.path || '',
-              },
-              {
-                label: t('Service'),
-                getter: data => data.backend.serviceName,
-              },
-              {
-                label: t('Port'),
-                getter: data => data.backend.servicePort,
-              },
-            ]}
-            data={getHostsData(item)}
-            reflectInURL="rules"
-          />
-        </SectionBox>
+        <>
+          <SectionBox title={t('Rules')}>
+            <SimpleTable
+              rowsPerPage={storeRowsPerPageOptions}
+              emptyMessage={t('ingress|No rules data to be shown.')}
+              columns={[
+                {
+                  label: t('Host'),
+                  getter: data => data.host,
+                },
+                {
+                  label: t('Path'),
+                  getter: data => data.path || '',
+                },
+                {
+                  label: t('Service'),
+                  getter: data => data.backend.serviceName,
+                },
+                {
+                  label: t('Port'),
+                  getter: data => data.backend.servicePort,
+                },
+              ]}
+              data={getHostsData(item)}
+              reflectInURL="rules"
+            />
+          </SectionBox>
+          <EventsSection />
+        </>
       )}
     />
   );

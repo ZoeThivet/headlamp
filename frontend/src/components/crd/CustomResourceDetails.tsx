@@ -7,6 +7,7 @@ import { ApiError } from '../../lib/k8s/apiProxy';
 import CustomResourceDefinition, { KubeCRD, makeCustomResourceClass } from '../../lib/k8s/crd';
 import { createRouteURL } from '../../lib/router';
 import { localeDate } from '../../lib/util';
+import { EventsSection } from '../cluster/Overview';
 import { HoverInfoLabel, NameValueTableRow, SectionBox } from '../common';
 import Empty from '../common/EmptyContent';
 import Loader from '../common/Loader';
@@ -49,7 +50,10 @@ export function CustomResourceDetails(props: CustomResourceDetailsProps) {
       <Loader title={t('crd|Loading custom resource details')} />
     )
   ) : (
-    <CustomResourceDetailsRenderer crd={crd} crName={crName} namespace={namespace} />
+    <>
+      <CustomResourceDetailsRenderer crd={crd} crName={crName} namespace={namespace} />
+      <EventsSection />
+    </>
   );
 }
 

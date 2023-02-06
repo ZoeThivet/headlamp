@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import StorageClass from '../../lib/k8s/storageClass';
+import { EventsSection } from '../cluster/Overview';
 import { DetailsGrid } from '../common/Resource';
 
 export default function StorageClassDetails() {
@@ -28,6 +29,7 @@ export default function StorageClassDetails() {
           },
         ]
       }
+      sectionsFunc={item => item && <EventsSection />}
     />
   );
 }

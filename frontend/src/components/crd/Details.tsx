@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ApiError } from '../../lib/k8s/apiProxy';
 import CRD, { KubeCRD, makeCustomResourceClass } from '../../lib/k8s/crd';
+import { EventsSection } from '../cluster/Overview';
 import { Link } from '../common';
 import Loader from '../common/Loader';
 import { ConditionsTable, MainInfoSection, PageGrid } from '../common/Resource';
@@ -142,6 +143,7 @@ export default function CustomResourceDefinitionDetails() {
       <SectionBox title={t('Objects')}>
         <CRObjectsTable crd={item} />
       </SectionBox>
+      <EventsSection />
       <DetailsViewSection resource={item} />
     </PageGrid>
   );

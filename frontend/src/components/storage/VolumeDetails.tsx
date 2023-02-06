@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import PersistentVolume from '../../lib/k8s/persistentVolume';
+import { EventsSection } from '../cluster/Overview';
 import { StatusLabel } from '../common/Label';
 import { DetailsGrid } from '../common/Resource';
 
@@ -42,6 +43,7 @@ export default function VolumeDetails() {
           },
         ]
       }
+      sectionsFunc={item => item && <EventsSection />}
     />
   );
 }

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { StringDict } from '../../lib/k8s/cluster';
 import StatefulSet from '../../lib/k8s/statefulSet';
+import { EventsSection } from '../cluster/Overview';
 import {
   ContainersSection,
   DetailsGrid,
@@ -38,6 +39,7 @@ export default function StatefulSetDetails() {
             <>
               <OwnedPodsSection resource={item?.jsonData} />
               <ContainersSection resource={item?.jsonData} />
+              <EventsSection />
             </>
           )}
           <DetailsViewSection resource={item} />

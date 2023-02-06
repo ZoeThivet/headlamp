@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import CronJob from '../../lib/k8s/cronJob';
 import Job from '../../lib/k8s/job';
+import { EventsSection } from '../cluster/Overview';
 import { DetailsGrid } from '../common/Resource';
 import DetailsViewSection from '../DetailsViewSection';
 import { JobsListRenderer } from '../job/List';
@@ -60,6 +61,7 @@ export default function CronJobDetails() {
       sectionsFunc={item => (
         <>
           {item && <JobsListRenderer jobs={ownedJobs} error={CronJob.getErrorMessage(jobsError)} />}
+          <EventsSection />
           <DetailsViewSection resource={item} />
         </>
       )}

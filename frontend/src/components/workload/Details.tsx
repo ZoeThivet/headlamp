@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { KubeObject, Workload } from '../../lib/k8s/cluster';
+import { EventsSection } from '../cluster/Overview';
 import {
   ConditionsSection,
   ContainersSection,
@@ -113,6 +114,7 @@ export default function WorkloadDetails(props: WorkloadDetailsProps) {
               <ContainersSection resource={item?.jsonData} />
             </>
           )}
+          <EventsSection />
           <DetailsViewSection resource={item} />
         </>
       )}

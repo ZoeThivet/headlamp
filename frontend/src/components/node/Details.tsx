@@ -8,6 +8,7 @@ import { KubeMetrics } from '../../lib/k8s/cluster';
 import Node from '../../lib/k8s/node';
 import { timeAgo } from '../../lib/util';
 import { CpuCircularChart, MemoryCircularChart } from '../cluster/Charts';
+import { EventsSection } from '../cluster/Overview';
 import { StatusLabelProps } from '../common';
 import { HeaderLabel, StatusLabel, ValueLabel } from '../common/Label';
 import { DetailsGrid, OwnedPodsSection } from '../common/Resource';
@@ -58,6 +59,7 @@ export default function NodeDetails() {
             <SystemInfoSection node={item} />
             <OwnedPodsSection resource={item?.jsonData} />
             <DetailsViewSection resource={item} />
+            <EventsSection />
           </>
         )
       }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import DaemonSet from '../../lib/k8s/daemonSet';
+import { EventsSection } from '../cluster/Overview';
 import { SectionBox, SimpleTable } from '../common';
 import {
   ContainersSection,
@@ -98,6 +99,7 @@ export default function DaemonSetDetails() {
               <OwnedPodsSection resource={item?.jsonData} />
               <TolerationsSection resource={item} t={t} />
               <ContainersSection resource={item?.jsonData} />
+              <EventsSection />
             </>
           )}
           <DetailsViewSection resource={item} />

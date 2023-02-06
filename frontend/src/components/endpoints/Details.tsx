@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useParams } from 'react-router-dom';
 import { ResourceClasses } from '../../lib/k8s';
 import Endpoints, { KubeEndpoint } from '../../lib/k8s/endpoints';
+import { EventsSection } from '../cluster/Overview';
 import { Link, SectionHeader } from '../common';
 import Empty from '../common/EmptyContent';
 import { DetailsGrid } from '../common/Resource';
@@ -99,6 +100,7 @@ export default function EndpointDetails() {
                 ))
               )}
             </>
+            <EventsSection />
           </>
         )
       }

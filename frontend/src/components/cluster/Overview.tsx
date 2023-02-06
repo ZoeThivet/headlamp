@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function EventsSection() {
+export function EventsSection() {
   const classes = useStyles();
   const { t } = useTranslation('glossary');
   const location = useLocation();

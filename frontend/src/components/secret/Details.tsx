@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Secret from '../../lib/k8s/secret';
+import { EventsSection } from '../cluster/Overview';
 import { DetailsGrid, SecretField } from '../common/Resource';
 
 export default function SecretDetails() {
@@ -19,6 +20,7 @@ export default function SecretDetails() {
           value: <SecretField value={value} />,
         }))
       }
+      sectionsFunc={item => item && <EventsSection />}
     />
   );
 }

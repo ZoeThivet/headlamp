@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import ServiceAccount from '../../lib/k8s/serviceAccount';
+import { EventsSection } from '../cluster/Overview';
 import { Link } from '../common';
 import { DetailsGrid } from '../common/Resource';
 
@@ -33,6 +34,7 @@ export default function ServiceAccountDetails() {
           },
         ]
       }
+      sectionsFunc={item => item && <EventsSection />}
     />
   );
 }
