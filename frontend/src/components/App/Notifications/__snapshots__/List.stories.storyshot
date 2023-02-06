@@ -54,7 +54,7 @@ exports[`Storyshots Notifications List 1`] = `
               class="MuiBox-root MuiBox-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-align-items-xs-center"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item"
