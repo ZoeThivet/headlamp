@@ -8,6 +8,7 @@ const fs = require('fs-extra');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const envPaths = require('env-paths');
 const path = require('path');
+const resolve = path.resolve;
 const child_process = require('child_process');
 const validate = require('validate-npm-package-name');
 const yargs = require('yargs/yargs');
@@ -82,7 +83,9 @@ function create(name, link) {
       encoding: 'utf8',
     });
   } catch (e) {
-    console.error(`Problem running npm install inside of "${dstFolder}"`);
+    console.error(
+      `Problem running npm install inside of "${dstFolder}" abs: "${resolve(dstFolder)}"`
+    );
     return 3;
   }
 
@@ -339,7 +342,9 @@ function format(packageFolder) {
       encoding: 'utf8',
     });
   } catch (e) {
-    console.error(`Problem running prettier inside of "${packageFolder}"`);
+    console.error(
+      `Problem running prettier inside of "${packageFolder}" abs: "${resolve(packageFolder)}"`
+    );
     return 1;
   }
 
@@ -497,7 +502,7 @@ function upgrade(packageFolder, skipPackageUpdates) {
    * @returns status code, so 0 on success and failure otherwise.
    */
   function runCmd(cmd, folder) {
-    console.log(`Running cmd:"${cmd}" inside of ${folder}`);
+    console.log(`Running cmd:"${cmd}" inside of ${folder} abs: "${resolve(folder)}"`);
     try {
       child_process.execSync(cmd, {
         stdio: 'inherit',
@@ -651,7 +656,9 @@ function lint(packageFolder, fix) {
       }
     );
   } catch (e) {
-    console.error(`Problem running eslint inside of "${packageFolder}"`);
+    console.error(
+      `Problem running eslint inside of "${packageFolder}" abs: "${resolve(packageFolder)}"`
+    );
     return 1;
   }
 
@@ -675,7 +682,11 @@ function storybook(packageFolder) {
       }
     );
   } catch (e) {
-    console.error(`Problem running start-storybook inside of "${packageFolder}"`);
+    console.error(
+      `Problem running start-storybook inside of "${packageFolder}" abs: "${resolve(
+        packageFolder
+      )}"`
+    );
     return 1;
   }
 
@@ -699,7 +710,11 @@ function test(packageFolder) {
       }
     );
   } catch (e) {
-    console.error(`Problem running start-storybook inside of "${packageFolder}"`);
+    console.error(
+      `Problem running start-storybook inside of "${packageFolder}" abs: "${resolve(
+        packageFolder
+      )}"`
+    );
     return 1;
   }
 
